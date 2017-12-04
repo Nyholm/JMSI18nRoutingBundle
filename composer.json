@@ -16,12 +16,12 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.0",
         "symfony/framework-bundle": "^4.0"
     },
     "require-dev": {
         "sensio/framework-extra-bundle": "*",
-        "symfony/symfony": "~2.3§|~3.0||^4.0",
+        "symfony/symfony": "~2.3|~3.0||^4.0",
         "phpunit/phpunit": "^6.0"
     },
     "suggest": {
