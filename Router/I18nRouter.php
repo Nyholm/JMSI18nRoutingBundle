@@ -152,7 +152,6 @@ class I18nRouter extends Router implements LoggerAwareInterface
                     'category'=>'routing',
                     'name'=>$name,
                     'parameters'=>json_encode($parameters),
-                    'absolute'=>$absolute ? 'true' : 'false',
                 ]);
             }
 
