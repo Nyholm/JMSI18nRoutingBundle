@@ -41,7 +41,7 @@ class I18nRouter extends Router implements LoggerAwareInterface
     private $hostMap = array();
     private $i18nLoaderId;
     private $container;
-    private $defaultLocale;
+    private $myDefaultLocale;
     private $redirectToHost = true;
     private $localeResolver;
 
@@ -92,9 +92,9 @@ class I18nRouter extends Router implements LoggerAwareInterface
         $this->i18nLoaderId = $id;
     }
 
-    public function setDefaultLocale($locale)
+    public function setMyDefaultLocale($locale)
     {
-        $this->defaultLocale = $locale;
+        $this->myDefaultLocale = $locale;
     }
 
     /**
@@ -109,7 +109,7 @@ class I18nRouter extends Router implements LoggerAwareInterface
         } else if ($currentLocale) {
             $locale = $currentLocale;
         } else {
-            $locale = $this->defaultLocale;
+            $locale = $this->myDefaultLocale;
         }
 
         // if the locale is changed, and we have a host map, then we need to

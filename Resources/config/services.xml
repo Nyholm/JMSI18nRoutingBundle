@@ -32,7 +32,7 @@
             <call method="setI18nLoaderId">
                 <argument>jms_i18n_routing.loader</argument>
             </call>
-            <call method="setDefaultLocale">
+            <call method="setMyDefaultLocale">
                 <argument>%jms_i18n_routing.default_locale%</argument>
             </call>
             <call method="setRedirectToHost">
