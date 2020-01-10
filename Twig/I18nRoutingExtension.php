@@ -58,7 +58,7 @@ class I18nRoutingExtension extends \Twig_Extension
             return;
         }
 
-        return $env->render('JMSI18nRoutingBundle::hreflang.html.twig', array(
+        return $env->render('@JMSI18nRouting/hreflang.html.twig', array(
             'locales'=>$this->locales,
             'route'=>$request->attributes->get('_route'),
             'routeParams'=>$routeParams,
