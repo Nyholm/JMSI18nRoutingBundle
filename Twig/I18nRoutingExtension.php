@@ -3,11 +3,14 @@
 namespace JMS\I18nRoutingBundle\Twig;
 
 use Symfony\Component\HttpFoundation\RequestStack;
+use Twig\Environment;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * @author Tobias Nyholm
  */
-class I18nRoutingExtension extends \Twig_Extension
+class I18nRoutingExtension extends AbstractExtension
 {
     /**
      * @var RequestStack requestStack
@@ -32,7 +35,7 @@ class I18nRoutingExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('hreflang', array($this, 'getHreflang'), array(
+            new TwigFunction('hreflang', array($this, 'getHreflang'), array(
                 'needs_environment'=>true,
                 'is_safe'=>array('html'),
                 )),
@@ -41,10 +44,8 @@ class I18nRoutingExtension extends \Twig_Extension
 
     /**
      * Return HTML with hreflang attributes
-     *
-     * @param \Twig_Environment $env
      */
-    public function getHreflang(\Twig_Environment $env)
+    public function getHreflang(Environment $env)
     {
         if (null === $request = $this->requestStack->getMasterRequest()) {
             return;
