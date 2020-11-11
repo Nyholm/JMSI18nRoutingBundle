@@ -26,10 +26,15 @@ final class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        $tb = new TreeBuilder();
+        $tb = new TreeBuilder('jms_i18n_routing');
+        // Keep compatibility with symfony/config < 4.2
+        if (!method_exists($tb, 'getRootNode')) {
+            $root = $tb->root('jms_i18n_routing');
+        } else {
+            $root = $tb->getRootNode();
+        }
 
-        $tb
-            ->root('jms_i18n_routing')
+        $root
                 ->fixXmlConfig('host')
                 ->validate()
                     ->always()
